@@ -9,7 +9,7 @@
 <body>
 
     <form method="get" name="form_rast">
-        <input type="text" name="code" value="QE217991319BR"/>
+        <input type="text" name="code" placeholder="Digite o código de rastreio"/>
         <button type="submit">Rastrear</button>
     </form>
     
