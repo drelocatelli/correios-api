@@ -9,7 +9,7 @@
         echo '{"error": "nenhum objeto encontrado"}';
     }
 ?>
-<div id="json"></div>
+
 <script>
     let body = document.body;
 
@@ -24,10 +24,7 @@
                 "date"  : date,
                 "percurso": percurso
             }
-    res = JSON.stringify(res);
-
-    let blob = new Blob([res], {type: "application/json"});
-    var url  = URL.createObjectURL(blob);
-    window.location.href = url;
+    
+    body.innerHTML = JSON.stringify(res);
 
 </script>
