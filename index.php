@@ -1,3 +1,4 @@
+<?php require_once('src/ScrapController.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,70 +10,28 @@
 <body>
 
     <form method="get" name="form_rast">
-        <input type="text" name="code" placeholder="Digite o código de rastreio"/>
+        <input type="text" name="code" placeholder="Digite o código de rastreio" required value="<?php if($_GET['code']){ echo $_GET['code'];} ?>" />
         <button type="submit">Rastrear</button>
     </form>
     
+    <br>
 
     <?php
-    class Scrap {
-        public $url;
-        public $data;
-    
-        public function __construct($code) {
-            $url = "https://www.linkcorreios.com.br/?id=$code";
 
-            $data = file_get_contents($url);
-            preg_match("/Útimo Status do Objeto: (.*)/i", $data, $matches);
-            $result = $matches[0];
-
-            echo '<br>';
-            echo $result;
-            echo '<br>';       
-            
-            preg_match("/Status: (.*)/i", $data, $matches);
-            $result = $matches[0];
-            $result = str_replace("Status: ", "",$result);
-
-            echo $result;
-            echo '<br>';
-
-            preg_match("/Origem: (.*)/i", $data, $matches);
-            $origem = $matches[0];
-            $origem = str_replace('Origem: ', '', $origem);
-
-            preg_match("/Destino: (.*)/i", $data, $matches);
-            $destino = $matches[0];
-            $destino = str_replace('Destino: ', '', $destino);
-
-            echo "De $origem para $destino";
-            
+        if($_GET['code']){
+            echo '<div id="rastreio">';
+            echo "<a href='response.php?code=".$_GET['code']."'>JSON</a><br>";
+                $scrap = new Scrap($_GET['code']);
+            echo '</div>';
         }
-    }
-
-    if($_GET['code']){
-        $scrap = new Scrap($_GET['code']);
-    }
 
     ?>
 </body>
 </html>
 
 <style>
+    body{display:flex; align-items:center; flex-direction:column;}
+    form{user-select:none;}
     *{font-family:sans-serif;}
+    button{cursor:pointer;}
 </style>
-
-<script>
-
-    let objetosTextarea = document.querySelector('#objetos');
-    let rastrearBtn = document.querySelector('#btnPesq');
-
-    let form_rast = document.querySelector('form[name=form_rast]');
-
-    // form_rast.onsubmit = function(e){
-    //     e.preventDefault();
-
-    // }
-
-
-</script>
