@@ -2,6 +2,7 @@
     class Scrap {
         private $url;
         private $data;
+        public $correiosApi;
         
         public function __construct($code) {
             ## JSON
@@ -29,16 +30,24 @@
             $destino = $matches[0];
             $destino = str_replace('Destino: ', '', $destino);
 
-            $correiosApi = array(
+            $this->correiosApi = array(
                 "Mapa" => $mapa,
                 "Status" => $status,
                 "Data" => $date,
                 "Origem" => $origem,
                 "Destino" => $destino
             );
-            echo json_encode($correiosApi);
 
             
         }
+
+        public function getSomething($item){
+            if($item == "All"){
+                echo json_encode($this->correiosApi);
+            }else{
+                echo $this->correiosApi["$item"];
+            }
+        }
+        
     }
 ?>

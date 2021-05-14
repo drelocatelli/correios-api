@@ -1,4 +1,3 @@
-<?php require_once('src/ScrapController.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,7 @@
 </head>
 <body>
 
-    <form method="get" name="form_rast" action="response.php">
+    <form method="get" name="form_rast" action="code/response.php">
         <input type="text" name="code" placeholder="Digite o código de rastreio" required value="<?php if(isset($_GET['code'])){ echo $_GET['code'];} ?>" />
         <button type="submit">Rastrear</button>
     </form>
