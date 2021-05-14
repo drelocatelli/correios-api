@@ -10,22 +10,10 @@
 <body>
 
     <form method="get" name="form_rast" action="response.php">
-        <input type="text" name="code" placeholder="Digite o código de rastreio" required value="<?php if($_GET['code']){ echo $_GET['code'];} ?>" />
+        <input type="text" name="code" placeholder="Digite o código de rastreio" required value="<?php if(isset($_GET['code'])){ echo $_GET['code'];} ?>" />
         <button type="submit">Rastrear</button>
     </form>
     
-    <br>
-
-    <?php
-
-        if($_GET['code']){
-            echo '<div id="rastreio">';
-            echo "<a href='response.php?code=".$_GET['code']."'>JSON</a><br>";
-                $scrap = new Scrap($_GET['code']);
-            echo '</div>';
-        }
-
-    ?>
 </body>
 </html>
 
