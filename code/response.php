@@ -2,8 +2,10 @@
     require_once("../src/ScrapController.php"); 
 
     if($_GET['code']){
-        $scrap = new Scrap($_GET['code']);
-        $scrap->getSomething("All");
-    }else{
-        echo '{"error": "nenhum objeto encontrado"}';
+        try{
+            $scrap = new Scrap($_GET['code']);
+            $scrap->getSomething("All");
+        }catch(Exception $e){
+            echo "Erro: " . $e->getMessage();
+        }
     }
