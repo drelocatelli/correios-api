@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <form method="get" name="form_rast">
+    <form method="get" name="form_rast" action="response.php">
         <input type="text" name="code" placeholder="Digite o código de rastreio" required value="<?php if($_GET['code']){ echo $_GET['code'];} ?>" />
         <button type="submit">Rastrear</button>
     </form>

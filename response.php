@@ -6,4 +6,3 @@
     }else{
         echo '{"error": "nenhum objeto encontrado"}';
     }
-?>
