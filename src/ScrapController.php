@@ -4,6 +4,7 @@
         private $data;
         
         public function __construct($code) {
+            header("Content-Type: application/json");
             $url = "https://www.linkcorreios.com.br/?id=$code";
             $data = file_get_contents($url);
 
