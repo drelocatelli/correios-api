@@ -8,6 +8,13 @@
 </head>
 <body>
 
+    <?php
+        if(isset($_GET['code'])){
+            $location = "code/response?code=".$_GET['code'];
+            header("Location: $location");
+        }
+    ?>
+
     <form method="get" name="form_rast" action="code/response.php">
         <input type="text" name="code" placeholder="Digite o código de rastreio" required value="<?php if(isset($_GET['code'])){ echo $_GET['code'];} ?>" />
         <button type="submit">Rastrear</button>
