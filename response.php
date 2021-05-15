@@ -1,9 +1,9 @@
 <?php 
-    require_once("../src/ScrapController.php"); 
+    require_once("src/ScrapController.php"); 
 
-    if($_GET['code']){
+    if($_POST['code']){
         try{
-            $scrap = new Scrap($_GET['code']);
+            $scrap = new Scrap($_POST['code']);
             $scrap->getSomething("All");
         }catch(Exception $e){
             echo "Erro: " . $e->getMessage();

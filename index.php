@@ -9,15 +9,15 @@
 <body>
 
     <?php
-        if(isset($_GET['code'])){
-            $location = "code/response?code=".$_GET['code'];
+        if(isset($_POST['code'])){
+            $location = "response?code=".$_POST['code'];
             header("Location: $location");
         }
     ?>
 
-    <form method="get" name="form_rast" action="code/response.php">
+    <form method="post" name="form_rast" action="response.php">
         Código:
-        <input type="text" name="code" placeholder="Digite o código de rastreio" required value="<?php if(isset($_GET['code'])){ echo $_GET['code'];} ?>" />
+        <input type="text" name="code" placeholder="Digite o código de rastreio" required value="<?php if(isset($_POST['code'])){ echo $_POST['code'];} ?>" />
         <button type="submit">Rastrear</button>
     </form>
     <br>
