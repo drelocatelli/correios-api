@@ -16,9 +16,12 @@
     ?>
 
     <form method="get" name="form_rast" action="code/response.php">
+        Código:
         <input type="text" name="code" placeholder="Digite o código de rastreio" required value="<?php if(isset($_GET['code'])){ echo $_GET['code'];} ?>" />
         <button type="submit">Rastrear</button>
     </form>
+    <br>
+    response?code=código_da_remersa
     
 </body>
 </html>
