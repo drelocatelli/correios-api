@@ -21,7 +21,7 @@
         <button type="submit">Rastrear</button>
     </form>
     <br>
-    response?code=código_da_remersa
+    response.php?code=código_da_remersa
     
 </body>
 </html>
