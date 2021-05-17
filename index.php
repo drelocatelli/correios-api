@@ -8,12 +8,6 @@
 </head>
 <body>
 
-    <?php
-        if(isset($_POST['code'])){
-            $location = "response?code=".$_POST['code'];
-            header("Location: $location");
-        }
-    ?>
 
     <form method="post" name="form_rast" action="response.php">
         Código:
