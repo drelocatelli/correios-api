@@ -7,7 +7,14 @@
     <title>Correios API</title>
 </head>
 <body>
-
+    <?php
+    
+        if(isset($_GET['code'])){
+            header("Location: response.php?code=$_GET['code']");
+        }else if(isset($_POST['code'])){
+            header("Location: response.php?code=$_POST['code']");
+        }
+    ?>
 
     <form method="post" name="form_rast" action="response.php">
         Código:
